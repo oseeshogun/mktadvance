@@ -8,17 +8,9 @@ import { cn } from "@/lib/utils"
 import Autoplay from "embla-carousel-autoplay"
 import Image from "next/image"
 import { Zoom } from "react-awesome-reveal"
+import { Partner } from "../utils/partners"
 
-const clients = [
-  "cnss-removebg-preview.png",
-  "Coca-Cola_logo.svg-removebg-preview.png",
-  "FBNBank-Senegal-Logo-removebg-preview.png",
-  "maggi-removebg-preview.png",
-  "south-tourisme-removebg-preview.png",
-  "uba_client.png",
-]
-
-const TheyTrustUs = () => {
+const TheyTrustUs = ({ partners }: { partners: Partner[] }) => {
   return (
     <div className="my-4 px-4">
       <h4 className="text-center text-3xl font-bold">
@@ -37,16 +29,19 @@ const TheyTrustUs = () => {
           className="w-full overflow-hidden"
         >
           <CarouselContent className="items-center justify-start -ml-4">
-            {clients.map((client) => (
-              <CarouselItem className="basis-1/6 max-md:basis-1/3" key={client}>
+            {partners.map((client) => (
+              <CarouselItem
+                className="basis-1/6 max-md:basis-1/3"
+                key={client._id}
+              >
                 <Zoom>
                   <Image
-                    src={`/assets/images/clients/${client}`}
-                    alt={client}
+                    src={client.avatar}
+                    alt={client.name}
                     width={200}
                     height={120}
                     className={cn(
-                      "object-contain opacity-[0.3] filter grayscale hover:opacity-100 hover:filter-none cursor-pointer transition-all duration-300 w-[116px] h-auto align-middle"
+                      "object-contain opacity-[0.3] filter grayscale hover:opacity-100 hover:filter-none cursor-pointer transition-all duration-300 w-[116px] h-auto align-middle",
                     )}
                   />
                 </Zoom>

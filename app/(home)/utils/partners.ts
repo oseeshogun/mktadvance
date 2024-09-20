@@ -1,18 +1,17 @@
 import { client } from "@/sanity/lib/client"
 import { urlFor } from "@/sanity/lib/image"
 
-export type TeamMember = {
+export type Partner = {
   _id: string
   name: string
   role: string
   avatar: string
 }
 
-export const getTeam = async (): Promise<TeamMember[]> => {
-  const query = `*[_type == "team"] | order(publishedAt desc) {
+export const getPartners = async (): Promise<Partner[]> => {
+  const query = `*[_type == "partners"] | order(publishedAt desc) {
         _id,
         name,
-        role,
         avatar,
       }`
 

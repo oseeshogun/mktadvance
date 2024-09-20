@@ -25,10 +25,14 @@ import WhatsappBubble from "./components/whatsapp_bubble"
 import MainNavigationMenu from "./components/main_navigation"
 import { getServices } from "./utils/service"
 import { getTeam } from "./utils/team"
+import { getPartners } from "./utils/partners"
+import { getInfo } from "./utils/info"
 
 export default async function Home() {
   const services = await getServices()
   const team = await getTeam()
+  const partners = await getPartners()
+  const info = await getInfo()
 
   return (
     <main>
@@ -66,7 +70,7 @@ export default async function Home() {
         </div>
       </div>
       <WhoWeAre />
-      <TheyTrustUs />
+      <TheyTrustUs partners={partners} />
       <section>
         <div className="my-6 flex px-[5%] max-md:flex-col">
           <ValuesImage />
@@ -240,14 +244,16 @@ export default async function Home() {
             Contactez-nous
           </h1>
         </div>
-        <div className="mt-12">
-          <iframe
-            className="border-none w-full h-[400px]"
-            title="Mkt Advance - 3592  Mont des arts, Lingwala"
-            src="https://www.google.com/maps?q=-4.313828829294465,15.30045616439124&output=embed&hl=fr"
-            allowFullScreen
-          ></iframe>
-        </div>
+        {info.coor.lat && info.coor.long && (
+          <div className="mt-12">
+            <iframe
+              className="border-none w-full h-[400px]"
+              title={`Mkt Advance - ${info.address}`}
+              src={`https://www.google.com/maps?q=${info.coor.lat},${info.coor.long}&output=embed&hl=fr`}
+              allowFullScreen
+            ></iframe>
+          </div>
+        )}
         <div className="mt-8 flex items-center justify-center max-md:flex-col">
           <div className="w-[40%] flex flex-col [&>*]:mb-8 max-md:w-full">
             <a
@@ -259,25 +265,27 @@ export default async function Home() {
               </div>
               <div className="ml-4">
                 <h4 className="font-bold text-lg">Adresse</h4>
-                <p>3592, Mont des arts, Lingwala, Kinshasa</p>
+                <p>
+                  {info.address}, {info.city}
+                </p>
               </div>
             </a>
-            <a href="mailto:info@mktadvance.com" className="flex">
+            <a href={`mailto:${info.email}`} className="flex">
               <div className="w-[50px] h-[50px] bg-red-500 flex items-center justify-center">
                 <Mail className="text-white" />
               </div>
               <div className="ml-4">
                 <h4 className="font-bold text-lg">Adresse e-mail</h4>
-                <p>info@mktadvance.com</p>
+                <p>{info.email}</p>
               </div>
             </a>
-            <a href="tel:+243819204000" className="flex">
+            <a href={`tel:${info.phone}`} className="flex">
               <div className="w-[50px] h-[50px] bg-red-500 flex items-center justify-center">
                 <Phone className="text-white" />
               </div>
               <div className="ml-4">
                 <h4 className="font-bold text-lg">Téléphone</h4>
-                <p>+243 819 204 000</p>
+                <p>{info.phone}</p>
               </div>
             </a>
           </div>
