@@ -5,21 +5,15 @@ import HeroNaviationMenu from "./hero_navigation_menu"
 import { MouseEventHandler, useCallback, useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
 import { Menu, X } from "lucide-react"
-import {
-  Flip,
-  Hinge,
-  JackInTheBox,
-  Roll,
-  Rotate,
-  Slide,
-} from "react-awesome-reveal"
+import { JackInTheBox } from "react-awesome-reveal"
+import { Service } from "../utils/service"
 
-const MainNavigationMenu = () => {
+const MainNavigationMenu = ({ services }: { services: Service[] }) => {
   const [isSticky, setIsSticky] = useState(false)
   const [isOpened, setIsOpened] = useState(false)
 
   const handleScroll = useCallback(() => {
-    if (window.scrollY > 80) {
+    if (window.scrollY > 120) {
       // Adjust the scroll threshold as needed
       setIsSticky(true)
     } else {
@@ -37,7 +31,7 @@ const MainNavigationMenu = () => {
   }, [handleScroll])
 
   const handleClose: MouseEventHandler<HTMLDivElement> = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ): void => {
     event.stopPropagation()
     /* @ts-ignore */
@@ -51,7 +45,7 @@ const MainNavigationMenu = () => {
       className={cn(
         "my-4 px-8 flex justify-between text-white",
         isSticky &&
-          "fixed w-full top-0 left-0 m-0 bg-white py-3 text-black z-[3] shadow-lg origin-top transition-all duration-300"
+          "fixed w-full top-0 left-0 m-0 bg-white py-3 text-black z-[3] shadow-lg origin-top transition-all duration-300",
       )}
     >
       <div className="bg-white">
@@ -63,7 +57,7 @@ const MainNavigationMenu = () => {
           className="w-[90px] object-contain"
         />
       </div>
-      <HeroNaviationMenu isSticky={isSticky} />
+      <HeroNaviationMenu services={services} isSticky={isSticky} />
       <Button
         variant="outline"
         className="hover:bg-red-500 hover:border-red-500 hover:text-white font-bold transition-all duration-300 max-md:hidden"
@@ -80,7 +74,7 @@ const MainNavigationMenu = () => {
       {isOpened && (
         <section
           className={cn(
-            "fixed top-0 right-0 h-screen w-screen bg-black/80 justify-end z-[10] flex"
+            "fixed top-0 right-0 h-screen w-screen bg-black/80 justify-end z-[10] flex",
           )}
           onClick={handleClose}
         >
@@ -102,7 +96,7 @@ const MainNavigationMenu = () => {
                   <X />
                 </Button>
               </div>
-              <HeroNaviationMenu isSticky={true} isMobile={true} />
+              <HeroNaviationMenu services={services} isSticky={true} isMobile={true} />
               <Button
                 variant="outline"
                 className="hover:bg-red-500 hover:border-red-500 hover:text-white font-bold transition-all duration-300 mx-7"

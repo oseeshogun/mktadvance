@@ -1,23 +1,16 @@
 import Image from "next/image"
 import HeroSectionCarousel from "./components/hero_section_carousel"
 import { Button } from "@/components/ui/button"
-import HeroNaviationMenu from "./components/hero_navigation_menu"
 import {
   Award,
-  Box,
   BrainCircuit,
   BriefcaseBusiness,
-  ChartColumnStacked,
   Dumbbell,
   HandCoins,
-  Handshake,
   Mail,
   MapPin,
-  Paintbrush,
   PartyPopper,
   Phone,
-  Signal,
-  WandSparkles,
 } from "lucide-react"
 import React from "react"
 import WhoWeAre from "./components/who_we_are"
@@ -30,58 +23,11 @@ import MktTeam from "./components/team"
 import Footer from "./components/footer"
 import WhatsappBubble from "./components/whatsapp_bubble"
 import MainNavigationMenu from "./components/main_navigation"
+import { getServices } from "./utils/service"
 
-const services: {
-  title: string
-  description: string
-  href: string
-  icon: React.ReactNode
-}[] = [
-  {
-    title: "Conseils Stratégiques en communication",
-    description:
-      "Des conseils personnalisés pour élaborer des stratégies marketing efficaces, basées sur une analyse approfondie de votre marché et de vos concurrents.",
-    icon: <ChartColumnStacked size={30} />,
-    href: "/services/strategie",
-  },
-  {
-    title: "Support Signalétique",
-    description:
-      "Conception, fabrication et installation de supports signalétiques percutants qui reflètent parfaitement votre identité de marque.",
-    icon: <Signal size={30} />,
-    href: "/services/signaletique",
-  },
-  {
-    title: "Lettrage 3D & Enseigne lumineuse",
-    description:
-      "Des enseignes lumineuses personnalisées qui attirent l'attention et renforcent la visibilité de votre marque, de jour comme de nuit.",
-    icon: <Box size={30} />,
-    href: "/services/lettrage",
-  },
-  {
-    title: "Impressions gain format & Decoupage au laser",
-    description:
-      "Des impréssions personnalisées qui renforcent la visibilité de votre marque.",
-    icon: <Paintbrush size={30} />,
-    href: "/services/impressions",
-  },
-  {
-    title: "Affichage Publicitaire",
-    description:
-      "Une gamme complète d'affichages publicitaires adaptés à vos besoins spécifiques pour maximiser votre impact auprès de votre public cible.",
-    icon: <WandSparkles size={30} />,
-    href: "/services/affichage",
-  },
-  {
-    title: "Marketing expérientiel et événementiel",
-    description:
-      "Des supports de visibilité personnalisés qui reflètent parfaitement votre identité de marque.",
-    icon: <Handshake size={30} />,
-    href: "/services/marketing",
-  },
-]
+export default async function Home() {
+  const services = await getServices()
 
-export default function Home() {
   return (
     <main>
       <div className="h-screen w-screen relative">
@@ -96,7 +42,7 @@ export default function Home() {
           unoptimized
         />
         <div className="absolute top-0 left-0 h-screen w-screen flex flex-col justify-between">
-          <MainNavigationMenu />
+          <MainNavigationMenu services={services} />
           <div className="text-white text-center mt-8">
             <HeroTitle />
             <div className="mt-8 grid grid-cols-6 max-md:grid-cols-3 max-sm:hidden max-md:gap-2 place-items-center">
@@ -105,7 +51,10 @@ export default function Home() {
                   key={index}
                   className="h-full p-4 w-[180px] border-[1px] border-red-500/60 flex flex-col items-center justify-center"
                 >
-                  <span className="text-red-500">{service.icon}</span>
+                  <span
+                    className="text-red-500"
+                    dangerouslySetInnerHTML={{ __html: service.icon }}
+                  ></span>
                   <div className="mt-4 font-bold text-lg">{service.title}</div>
                 </div>
               ))}
