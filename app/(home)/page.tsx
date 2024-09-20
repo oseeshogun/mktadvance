@@ -24,9 +24,11 @@ import Footer from "./components/footer"
 import WhatsappBubble from "./components/whatsapp_bubble"
 import MainNavigationMenu from "./components/main_navigation"
 import { getServices } from "./utils/service"
+import { getTeam } from "./utils/team"
 
 export default async function Home() {
   const services = await getServices()
+  const team = await getTeam()
 
   return (
     <main>
@@ -226,7 +228,7 @@ export default async function Home() {
         <div className="z-[-1] bg-black/70 w-full h-full absolute top-0 left-0"></div>
         <div className="w-full h-full absolute top-0 left-0 py-[2%] text-white flex flex-col items-center">
           <h2 className="text-3xl font-bold text-center">Notre équipe</h2>
-          <MktTeam />
+          <MktTeam team={team} />
         </div>
       </section>
       <section className="my-12 px-[5%]" id="contact">

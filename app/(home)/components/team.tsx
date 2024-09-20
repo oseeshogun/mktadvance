@@ -1,42 +1,16 @@
-'use client'
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import Image from "next/image";
+"use client"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
+import Image from "next/image"
+import { TeamMember } from "../utils/team"
+import { urlFor } from "@/sanity/lib/image"
+import { cn } from "@/lib/utils"
 
-const team: { name: string; role: string; image: string }[] = [
-    {
-      name: "Madame Mireille Kaimby Tshiyoyo",
-      role: "Directrice",
-      image: "/assets/images/team/team-1.jpg",
-    },
-    {
-      name: "M. Andre",
-      role: "Chief officer",
-      image: "/assets/images/team/team-2.jpg",
-    },
-    {
-      name: "Madame Deborah",
-      role: "Secretaire",
-      image: "/assets/images/team/team-3.jpg",
-    },
-    {
-      name: "Madame Mireille Kaimby Tshiyoyo",
-      role: "Directrice",
-      image: "/assets/images/team/team-1.jpg",
-    },
-    {
-      name: "M. Andre",
-      role: "Chief officer",
-      image: "/assets/images/team/team-2.jpg",
-    },
-    {
-      name: "Madame Deborah",
-      role: "Secretaire",
-      image: "/assets/images/team/team-3.jpg",
-    },
-  ]
-
-const MktTeam = () => {
+const MktTeam = ({ team }: { team: TeamMember[] }) => {
   return (
     <Carousel
       opts={{
@@ -53,16 +27,18 @@ const MktTeam = () => {
         {team.map((member, index) => (
           <CarouselItem
             key={index}
-            className="flex flex-col items-center justify-center lg:basis-1/3 md:basis-1/2"
+            className={cn("flex flex-col items-center justify-center md:basis-1/2", team.length >= 3 ? 'lg:basis-1/3' : 'lg:basis-1/2')}
           >
             <Image
-              src={member.image}
+              src={member.avatar}
               alt={member.name}
               width={239}
               height={239}
-              className="rounded-full aspect-square h-[100px] w-[100px] max-sm:h-[50px] max-sm:w-[50px] border-8 border-[rgba(255,255,255,.15)]"
+              className="rounded-full aspect-square h-[100px] w-[100px] max-sm:h-[50px] max-sm:w-[50px] border-8 border-[rgba(255,255,255,.15)] object-cover"
             />
-            <h4 className="font-bold text-xl mt-4 max-sm:px-4">{member.name}</h4>
+            <h4 className="font-bold text-xl mt-4 max-sm:px-4">
+              {member.name}
+            </h4>
             <p>{member.role}</p>
           </CarouselItem>
         ))}
