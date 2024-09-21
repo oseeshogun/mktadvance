@@ -4,7 +4,15 @@ import teamsType from "./teams"
 import partnersType from "./partners"
 import infoType from "./info"
 import galleryType from "./gallery"
+import carouselType from "./carousel"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [servicesType, teamsType, partnersType, infoType, galleryType],
+  types: [
+    servicesType,
+    teamsType,
+    partnersType,
+    infoType,
+    galleryType,
+    carouselType,
+  ],
 }

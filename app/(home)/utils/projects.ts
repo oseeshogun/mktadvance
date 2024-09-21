@@ -36,3 +36,20 @@ export const getProjects = async (): Promise<CustomImage[]> => {
 
   return galleries.map((t: any) => ({ ...t, image: urlFor(t.image).url() }))
 }
+
+export const getCarousels = async (): Promise<{ image: string, caption: string }[]> => {
+  const query = `*[_type == "carousel"] | order(publishedAt desc) {
+        _id,
+        caption,
+        image,
+      }`
+
+  const galleries = await client.fetch(query, undefined, {
+    // next: { revalidate: 60 * 60 },
+    cache: 'no-cache'
+  })
+
+  console.log(galleries.map((t: any) => t.category));
+
+  return galleries.map((t: any) => ({ ...t, image: urlFor(t.image).url() }))
+}

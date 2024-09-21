@@ -9,23 +9,11 @@ import {
 import Autoplay from "embla-carousel-autoplay"
 import Image from "next/image"
 
-const carousels: { url: string; alt: string; width: number; height: number }[] =
-  [
-    {
-      url: "/assets/images/hero_carousels/goma.jpg",
-      alt: "Goma Tshukutu",
-      width: 640,
-      height: 480,
-    },
-    {
-      url: "/assets/images/hero_carousels/limete-tower.webp",
-      alt: "Goma Tshukutu",
-      width: 640,
-      height: 480,
-    },
-  ]
-
-const HeroSectionCarousel = () => {
+const HeroSectionCarousel = ({
+  images,
+}: {
+  images: { image: string; caption: string }[]
+}) => {
   return (
     <div className="h-screen z-[-2]">
       <Carousel
@@ -40,13 +28,13 @@ const HeroSectionCarousel = () => {
         className="overflow-hidden"
       >
         <CarouselContent>
-          {carousels.map((carousel) => (
-            <CarouselItem key={carousel.url}>
+          {images.map((carousel) => (
+            <CarouselItem key={carousel.image}>
               <Image
-                src={carousel.url}
-                alt={carousel.alt}
-                width={carousel.width}
-                height={carousel.height}
+                src={carousel.image}
+                alt={carousel.caption}
+                width={860}
+                height={1240}
                 className="h-screen w-screen object-cover px-0 mx-0"
               />
             </CarouselItem>

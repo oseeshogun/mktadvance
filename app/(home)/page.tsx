@@ -27,7 +27,7 @@ import { getServices } from "./utils/service"
 import { getTeam } from "./utils/team"
 import { getPartners } from "./utils/partners"
 import { getInfo } from "./utils/info"
-import { getProjects } from "./utils/projects"
+import { getCarousels, getProjects } from "./utils/projects"
 
 export default async function Home() {
   const services = await getServices()
@@ -35,11 +35,12 @@ export default async function Home() {
   const partners = await getPartners()
   const info = await getInfo()
   const projects = await getProjects()
+  const carouselImages = await getCarousels()
 
   return (
     <main>
       <div className="h-screen w-screen relative">
-        <HeroSectionCarousel />
+        <HeroSectionCarousel images={carouselImages} />
         <div className="bg-black/60 absolute top-0 left-0 h-screen w-screen"></div>
         <Image
           src="/assets/images/Animated-Flag-Congo.gif"
