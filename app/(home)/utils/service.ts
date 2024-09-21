@@ -6,7 +6,7 @@ export type Service = {
   slug: { current: string }
   icon: string
   description: string
-  content?: any
+  content?: unknown
   image?: unknown
 }
 

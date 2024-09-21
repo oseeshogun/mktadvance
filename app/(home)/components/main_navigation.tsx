@@ -34,7 +34,7 @@ const MainNavigationMenu = ({ services }: { services: Service[] }) => {
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ): void => {
     event.stopPropagation()
-    /* @ts-ignore */
+    /* @ts-except-error */
     if (event.target.tagName == "SECTION") {
       setIsOpened(false)
     }
@@ -96,7 +96,11 @@ const MainNavigationMenu = ({ services }: { services: Service[] }) => {
                   <X />
                 </Button>
               </div>
-              <HeroNaviationMenu services={services} isSticky={true} isMobile={true} />
+              <HeroNaviationMenu
+                services={services}
+                isSticky={true}
+                isMobile={true}
+              />
               <Button
                 variant="outline"
                 className="hover:bg-red-500 hover:border-red-500 hover:text-white font-bold transition-all duration-300 mx-7"

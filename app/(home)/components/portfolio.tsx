@@ -44,7 +44,7 @@ const Porfolio = ({ portfolios }: { portfolios: CustomImage[] }) => {
             </div>
           ),
         })),
-    [currentCategory],
+    [currentCategory, portfolios],
   )
 
   const [item, setItem] = useState<CustomImage | null>(null)
@@ -56,7 +56,7 @@ const Porfolio = ({ portfolios }: { portfolios: CustomImage[] }) => {
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ): void => {
     event.stopPropagation()
-    /* @ts-ignore */
+    /* @ts-expect-error */
     if (event.target.tagName == "DIV") {
       setItem(null)
     }

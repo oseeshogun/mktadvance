@@ -5,7 +5,7 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
 } from "@radix-ui/react-navigation-menu"
-import { ArrowLeft, ChevronDown, ChevronRight } from "lucide-react"
+import { ChevronDown, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import React from "react"
 import { Service } from "../utils/service"

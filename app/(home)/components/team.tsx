@@ -7,7 +7,6 @@ import {
 import Autoplay from "embla-carousel-autoplay"
 import Image from "next/image"
 import { TeamMember } from "../utils/team"
-import { urlFor } from "@/sanity/lib/image"
 import { cn } from "@/lib/utils"
 
 const MktTeam = ({ team }: { team: TeamMember[] }) => {

@@ -32,8 +32,6 @@ export const getProjects = async (): Promise<CustomImage[]> => {
     cache: 'no-cache'
   })
 
-  console.log(galleries.map((t: any) => t.category));
-
   return galleries.map((t: any) => ({ ...t, image: urlFor(t.image).url() }))
 }
 
@@ -48,8 +46,6 @@ export const getCarousels = async (): Promise<{ image: string, caption: string }
     // next: { revalidate: 60 * 60 },
     cache: 'no-cache'
   })
-
-  console.log(galleries.map((t: any) => t.category));
 
   return galleries.map((t: any) => ({ ...t, image: urlFor(t.image).url() }))
 }

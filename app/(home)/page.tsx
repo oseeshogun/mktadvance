@@ -87,8 +87,8 @@ export default async function Home() {
                     La Passion
                   </h3>
                   <p>
-                    Nous pensons qu'il est important d'être passionné par ce que
-                    l'on fait afin de prendre du plaisir dans les projets que
+                    Nous pensons qu&apos;il est important d&apos;être passionné par ce que
+                    l&apos;on fait afin de prendre du plaisir dans les projets que
                     nous menons et à le partager avec nos clients et
                     partenaires. A ce titre, la co-création est au coeur de nos
                     process.
@@ -102,7 +102,7 @@ export default async function Home() {
                 />
                 <div>
                   <h3 className="text-xl text-black-500 font-bold">
-                    L'exigence
+                    L&apos;exigence
                   </h3>
                   <p>
                     Nous nous imposons ce que nous recommandons à nos clients et
@@ -146,7 +146,7 @@ export default async function Home() {
         <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[-2] bg-[url('/assets/images/cta-bg.jpg')] bg-fixed"></div>
         <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[-1]"></div>
         <h1 className="text-3xl font-bold">
-          Transformez votre visibilité dès aujourd'hui !
+          Transformez votre visibilité dès aujourd&apos;hui !
         </h1>
         <p className="max-md:mt-5">
           Contactez-nous maintenant pour faire briller votre marque et captiver
@@ -180,9 +180,9 @@ export default async function Home() {
         <div className="w-[55%] max-md:w-full">
           <h1 className="text-3xl font-bold">Nos Performances Éclatantes</h1>
           <p>
-            Découvrez l'impact de nos réalisations à travers des chiffres
+            Découvrez l&apos;impact de nos réalisations à travers des chiffres
             impressionnants qui témoignent de notre engagement envers
-            l'excellence et la réussite. Explorez nos performances éclatantes
+            l&apos;excellence et la réussite. Explorez nos performances éclatantes
             pour voir comment nous transformons les défis en succès et les idées
             en résultats concrets.
           </p>
@@ -195,7 +195,7 @@ export default async function Home() {
               <span className="text-4xl font-bold mr-1">+100</span>
               <span className="font-bold">clients heureux</span> et satisfaits
               de nos services, témoignant de notre engagement envers
-              l'excellence et la satisfaction clientèle.
+              l&apos;excellence et la satisfaction clientèle.
             </p>
             <p className="">
               <BriefcaseBusiness
@@ -213,8 +213,8 @@ export default async function Home() {
                 className="text-red-500 h-[50px] w-[50px] float-left mr-3"
               />
               <span className="text-4xl font-bold mr-1">+15</span>
-              <span className="font-bold">ans d'expérience</span> à innover,
-              créer et exceller dans l'industrie, façonnant notre expertise et
+              <span className="font-bold">ans d&apos;expérience</span> à innover,
+              créer et exceller dans l&apos;industrie, façonnant notre expertise et
               notre engagement à vous offrir le meilleur.
             </p>
             <p className="">
@@ -224,8 +224,8 @@ export default async function Home() {
               />
               <span className="text-4xl font-bold mr-1">+20</span>
               <span className="font-bold">prix remportés,</span> une
-              reconnaissance de notre dévouement à l'excellence et à
-              l'innovation dans notre domaine.
+              reconnaissance de notre dévouement à l&apos;excellence et à
+              l&apos;innovation dans notre domaine.
             </p>
           </div>
         </div>

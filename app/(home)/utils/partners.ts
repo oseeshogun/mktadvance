@@ -1,5 +1,6 @@
 import { client } from "@/sanity/lib/client"
 import { urlFor } from "@/sanity/lib/image"
+import { SanityImageSource } from "@sanity/image-url/lib/types/types"
 
 export type Partner = {
   _id: string
@@ -19,5 +20,8 @@ export const getPartners = async (): Promise<Partner[]> => {
     next: { revalidate: 60 * 60 },
   })
 
-  return team.map((t: any) => ({ ...t, avatar: urlFor(t.avatar).url() }))
+  return team.map((t: { [key: string]: unknown }) => ({
+    ...t,
+    avatar: urlFor(t.avatar as SanityImageSource).url(),
+  }))
 }

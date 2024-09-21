@@ -91,7 +91,7 @@ const Footer = async () => {
           <h2 className="text-lg font-bold">Notre Newsletter</h2>
           <p className="max-w-[420px]">
             Ne manquez jamais une opportunité de rester à jour et de découvrir
-            ce qui se passe dans l'univers de la visibilité et du marketing.
+            ce qui se passe dans l&apos;univers de la visibilité et du marketing.
           </p>
           <div className="mt-8 flex justify-start items-center">
             <input
