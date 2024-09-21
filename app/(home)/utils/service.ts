@@ -6,6 +6,8 @@ export type Service = {
   slug: { current: string }
   icon: string
   description: string
+  content?: any
+  image?: unknown
 }
 
 export const getServices = async (): Promise<Service[]> => {
@@ -22,4 +24,28 @@ export const getServices = async (): Promise<Service[]> => {
   })
 
   return services
+}
+
+export const getServiceBySlug = async (
+  slug: string,
+): Promise<Service | null> => {
+  const query = `*[_type == "service" && slug.current == $slug][0] {
+      _id,
+      title,
+      slug,
+      icon,
+      description,
+      content,
+      image,
+    }`
+
+  const service = await client.fetch(
+    query,
+    { slug },
+    {
+      next: { revalidate: 60 * 60 },
+    },
+  )
+
+  return service || null // Return null if no service is found
 }
