@@ -13,7 +13,7 @@ const MainNavigationMenu = ({ services }: { services: Service[] }) => {
   const [isOpened, setIsOpened] = useState(false)
 
   const handleScroll = useCallback(() => {
-    if (window.scrollY > 120) {
+    if (window.scrollY > window.innerHeight) {
       // Adjust the scroll threshold as needed
       setIsSticky(true)
     } else {
