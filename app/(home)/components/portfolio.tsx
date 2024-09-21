@@ -6,97 +6,7 @@ import { X } from "lucide-react"
 import Image from "next/image"
 import { MouseEventHandler, useMemo, useState } from "react"
 import { Zoom } from "react-awesome-reveal"
-
-enum PortfolioCategory {
-  all = "Tous",
-  lettrage = "Lettrage",
-  affiche = "Affiche",
-  event = "Évènement",
-}
-
-type CustomImage = {
-  src: string
-  caption: string
-  categories: PortfolioCategory[]
-  width: number
-  height: number
-  customOverlay: React.ReactNode
-}
-
-const portfolios: CustomImage[] = [
-  {
-    src: "/assets/images/portfolio/ede.jpg",
-    caption: "Lettrage lumineux en 3D de la CNSS",
-    categories: [PortfolioCategory.lettrage],
-    width: 4032,
-    height: 3024,
-    customOverlay: (
-      <div className="custom-overlay__caption">
-        <div>Lettrage lumineux en 3D de la CNSS</div>
-      </div>
-    ),
-  },
-  {
-    src: "/assets/images/portfolio/ac.jpg",
-    caption: "Événement CokeFest-Cola",
-    categories: [PortfolioCategory.event],
-    width: 485,
-    height: 484,
-    customOverlay: (
-      <div className="custom-overlay__caption">
-        <div>Événement CokeFest-Cola</div>
-      </div>
-    ),
-  },
-  {
-    caption: "Lettrage signalitique en 3D de l'entreprise MKTAdvance",
-    src: "/assets/images/portfolio/al.jpg",
-    categories: [PortfolioCategory.lettrage],
-    width: 5472,
-    height: 3648,
-    customOverlay: (
-      <div className="custom-overlay__caption">
-        <div>Lettrage signalitique en 3D de l'entreprise MKTAdvance</div>
-      </div>
-    ),
-  },
-  {
-    caption: "",
-    src: "/assets/images/portfolio/am.jpg",
-    categories: [PortfolioCategory.affiche],
-    width: 833,
-    height: 973,
-    customOverlay: (
-      <div className="custom-overlay__caption">
-        <div>Grand Affiche de Coca-Cola</div>
-      </div>
-    ),
-  },
-  {
-    src: "/assets/images/portfolio/i10.jpg",
-    caption: "Lettrage Banque UBA",
-    categories: [PortfolioCategory.lettrage],
-    width: 810,
-    height: 1080,
-    customOverlay: (
-      <div className="custom-overlay__caption">
-        <div>Lettrage Banque UBA</div>
-      </div>
-    ),
-  },
-  {
-    caption: "Grand Affiche Visit South Africa",
-    src: "/assets/images/portfolio/south.jpg",
-    categories: [PortfolioCategory.affiche],
-    width: 946,
-    height: 575,
-    customOverlay: (
-      <div className="custom-overlay__caption">
-        <div>Grand Affiche Visit South Africa</div>
-      </div>
-    ),
-  },
-]
+import { CustomImage, PortfolioCategory } from "../utils/projects"
 
 // Pixel GIF code adapted from https://stackoverflow.com/a/33919020/266535
 const keyStr =
@@ -116,16 +26,25 @@ const rgbaDataURL = (r: number, g: number, b: number, a: number) => {
   }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`
 }
 
-const Porfolio = () => {
+const Porfolio = ({ portfolios }: { portfolios: CustomImage[] }) => {
   const [currentCategory, setCurrentCategory] = useState(PortfolioCategory.all)
   const projects = useMemo(
     () =>
-      portfolios.filter(
-        (p) =>
-          p.categories.includes(currentCategory) ||
-          currentCategory === PortfolioCategory.all
-      ),
-    [currentCategory]
+      portfolios
+        .filter(
+          (p) =>
+            p.category.includes(currentCategory) ||
+            currentCategory === PortfolioCategory.all,
+        )
+        .map((t) => ({
+          ...t,
+          customOverlay: (
+            <div className="custom-overlay__caption">
+              <div>{t.caption}</div>
+            </div>
+          ),
+        })),
+    [currentCategory],
   )
 
   const [item, setItem] = useState<CustomImage | null>(null)
@@ -134,7 +53,7 @@ const Porfolio = () => {
     setItem(item)
   }
   const handleClose: MouseEventHandler<HTMLDivElement> = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ): void => {
     event.stopPropagation()
     /* @ts-ignore */
@@ -151,7 +70,7 @@ const Porfolio = () => {
             key={category}
             className={cn(
               currentCategory === category && "bg-red-500 text-white",
-              "transition-all ease-linear duration-100 uppercase"
+              "transition-all ease-linear duration-100 uppercase",
             )}
             variant="outline"
             onClick={() => setCurrentCategory(category)}
@@ -169,7 +88,7 @@ const Porfolio = () => {
             >
               <Zoom>
                 <Image
-                  src={project.src}
+                  src={project.image}
                   alt={project.caption}
                   height={project.height}
                   width={project.width}
@@ -182,7 +101,7 @@ const Porfolio = () => {
               </Zoom>
               <div
                 className={cn(
-                  "absolute w-full hidden group-hover:block group-hover:scale-105 transition-all ease-linear duration-300"
+                  "absolute w-full hidden group-hover:block group-hover:scale-105 transition-all ease-linear duration-300",
                 )}
               >
                 {project.customOverlay}
@@ -202,7 +121,7 @@ const Porfolio = () => {
             >
               <Zoom triggerOnce>
                 <Image
-                  src={item.src}
+                  src={item.image}
                   alt={item.caption}
                   height={item.height}
                   width={item.width}

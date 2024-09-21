@@ -27,12 +27,14 @@ import { getServices } from "./utils/service"
 import { getTeam } from "./utils/team"
 import { getPartners } from "./utils/partners"
 import { getInfo } from "./utils/info"
+import { getProjects } from "./utils/projects"
 
 export default async function Home() {
   const services = await getServices()
   const team = await getTeam()
   const partners = await getPartners()
   const info = await getInfo()
+  const projects = await getProjects()
 
   return (
     <main>
@@ -162,7 +164,7 @@ export default async function Home() {
             Consultez nos Réalisations
           </h1>
         </div>
-        <Porfolio />
+        <Porfolio portfolios={projects}  />
       </section>
       <section className="mt-8 mb-4 p-[5%] flex justify-between max-md:flex-col">
         <div className="w-[40%] max-md:w-full max-md:mb-4">
