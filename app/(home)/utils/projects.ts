@@ -1,5 +1,6 @@
 import { client } from "@/sanity/lib/client"
 import { urlFor } from "@/sanity/lib/image"
+import { SanityImageSource } from "@sanity/image-url/lib/types/types"
 
 export enum PortfolioCategory {
   all = "Tous",
@@ -29,13 +30,18 @@ export const getProjects = async (): Promise<CustomImage[]> => {
 
   const galleries = await client.fetch(query, undefined, {
     // next: { revalidate: 60 * 60 },
-    cache: 'no-cache'
+    cache: "no-cache",
   })
 
-  return galleries.map((t: any) => ({ ...t, image: urlFor(t.image).url() }))
+  return galleries.map((t: { [key: string]: unknown }) => ({
+    ...t,
+    image: urlFor(t.image as SanityImageSource).url(),
+  }))
 }
 
-export const getCarousels = async (): Promise<{ image: string, caption: string }[]> => {
+export const getCarousels = async (): Promise<
+  { image: string; caption: string }[]
+> => {
   const query = `*[_type == "carousel"] | order(publishedAt desc) {
         _id,
         caption,
@@ -43,9 +49,11 @@ export const getCarousels = async (): Promise<{ image: string, caption: string }
       }`
 
   const galleries = await client.fetch(query, undefined, {
-    // next: { revalidate: 60 * 60 },
-    cache: 'no-cache'
+    next: { revalidate: 60 * 60 },
   })
 
-  return galleries.map((t: any) => ({ ...t, image: urlFor(t.image).url() }))
+  return galleries.map((t: { [key: string]: unknown }) => ({
+    ...t,
+    image: urlFor(t.image as SanityImageSource).url(),
+  }))
 }

@@ -56,7 +56,7 @@ const Porfolio = ({ portfolios }: { portfolios: CustomImage[] }) => {
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ): void => {
     event.stopPropagation()
-    /* @ts-expect-error */
+    // @ts-expect-error: Should expect tagName
     if (event.target.tagName == "DIV") {
       setItem(null)
     }

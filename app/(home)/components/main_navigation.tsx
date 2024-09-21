@@ -34,7 +34,7 @@ const MainNavigationMenu = ({ services }: { services: Service[] }) => {
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ): void => {
     event.stopPropagation()
-    /* @ts-except-error */
+     // @ts-expect-error: Should expect tagName
     if (event.target.tagName == "SECTION") {
       setIsOpened(false)
     }

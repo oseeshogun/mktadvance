@@ -5,6 +5,7 @@ import { getServiceBySlug, getServices } from "@/app/(home)/utils/service"
 import { urlFor } from "@/sanity/lib/image"
 import { PortableText } from "@portabletext/react"
 import Image from "next/image"
+import { TypedObject } from "sanity"
 
 type CodeBlock = {
   value: {
@@ -60,7 +61,7 @@ const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
           )}
         </div>
         <div className="my-6 px-[5%] flex flex-col items-start justify-center">
-          <PortableText value={service?.content} components={components} />
+          <PortableText value={service?.content as TypedObject[]} components={components} />
         </div>
       </div>
       <Footer />
