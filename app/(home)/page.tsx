@@ -28,6 +28,7 @@ import { getTeam } from "./utils/team"
 import { getPartners } from "./utils/partners"
 import { getInfo } from "./utils/info"
 import { getCarousels, getProjects } from "./utils/projects"
+import Link from "next/link"
 
 export default async function Home() {
   const services = await getServices()
@@ -87,11 +88,11 @@ export default async function Home() {
                     La Passion
                   </h3>
                   <p>
-                    Nous pensons qu&apos;il est important d&apos;être passionné par ce que
-                    l&apos;on fait afin de prendre du plaisir dans les projets que
-                    nous menons et à le partager avec nos clients et
-                    partenaires. A ce titre, la co-création est au coeur de nos
-                    process.
+                    Nous pensons qu&apos;il est important d&apos;être passionné
+                    par ce que l&apos;on fait afin de prendre du plaisir dans
+                    les projets que nous menons et à le partager avec nos
+                    clients et partenaires. A ce titre, la co-création est au
+                    coeur de nos process.
                   </p>
                 </div>
               </div>
@@ -152,9 +153,11 @@ export default async function Home() {
           Contactez-nous maintenant pour faire briller votre marque et captiver
           votre public.
         </p>
-        <Button variant="outline" className="mt-6">
-          Contactez-nous
-        </Button>
+        <Link href="/#contact">
+          <Button variant="outline" className="mt-6">
+            Contactez-nous
+          </Button>
+        </Link>
       </section>
       <section className="my-6 px-[5%]" id="realisations">
         <div>
@@ -165,7 +168,7 @@ export default async function Home() {
             Consultez nos Réalisations
           </h1>
         </div>
-        <Porfolio portfolios={projects}  />
+        <Porfolio portfolios={projects} />
       </section>
       <section className="mt-8 mb-4 p-[5%] flex justify-between max-md:flex-col">
         <div className="w-[40%] max-md:w-full max-md:mb-4">
@@ -182,9 +185,9 @@ export default async function Home() {
           <p>
             Découvrez l&apos;impact de nos réalisations à travers des chiffres
             impressionnants qui témoignent de notre engagement envers
-            l&apos;excellence et la réussite. Explorez nos performances éclatantes
-            pour voir comment nous transformons les défis en succès et les idées
-            en résultats concrets.
+            l&apos;excellence et la réussite. Explorez nos performances
+            éclatantes pour voir comment nous transformons les défis en succès
+            et les idées en résultats concrets.
           </p>
           <div className="grid grid-cols-2 mt-5 gap-4 max-sm:grid-cols-1">
             <p className="">
@@ -213,9 +216,9 @@ export default async function Home() {
                 className="text-red-500 h-[50px] w-[50px] float-left mr-3"
               />
               <span className="text-4xl font-bold mr-1">+15</span>
-              <span className="font-bold">ans d&apos;expérience</span> à innover,
-              créer et exceller dans l&apos;industrie, façonnant notre expertise et
-              notre engagement à vous offrir le meilleur.
+              <span className="font-bold">ans d&apos;expérience</span> à
+              innover, créer et exceller dans l&apos;industrie, façonnant notre
+              expertise et notre engagement à vous offrir le meilleur.
             </p>
             <p className="">
               <Award
