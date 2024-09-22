@@ -5,6 +5,7 @@ import partnersType from "./partners"
 import infoType from "./info"
 import galleryType from "./gallery"
 import carouselType from "./carousel"
+import articleType from "./article"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -14,5 +15,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     infoType,
     galleryType,
     carouselType,
+    articleType,
   ],
 }
