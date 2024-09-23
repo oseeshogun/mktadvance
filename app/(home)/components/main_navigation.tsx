@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { Menu, X } from "lucide-react"
 import { JackInTheBox } from "react-awesome-reveal"
 import { Service } from "../utils/service"
+import Link from "next/link"
 
 const MainNavigationMenu = ({ services }: { services: Service[] }) => {
   const [isSticky, setIsSticky] = useState(false)
@@ -34,7 +35,7 @@ const MainNavigationMenu = ({ services }: { services: Service[] }) => {
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ): void => {
     event.stopPropagation()
-     // @ts-expect-error: Should expect tagName
+    // @ts-expect-error: Should expect tagName
     if (event.target.tagName == "SECTION") {
       setIsOpened(false)
     }
@@ -58,12 +59,14 @@ const MainNavigationMenu = ({ services }: { services: Service[] }) => {
         />
       </div>
       <HeroNaviationMenu services={services} isSticky={isSticky} />
-      <Button
-        variant="outline"
-        className="hover:bg-red-500 hover:border-red-500 hover:text-white font-bold transition-all duration-300 max-md:hidden"
-      >
-        Demander un devis
-      </Button>
+      <Link href='/estimation'>
+        <Button
+          variant="outline"
+          className="hover:bg-red-500 hover:border-red-500 hover:text-white font-bold transition-all duration-300 max-md:hidden"
+        >
+          Demander un devis
+        </Button>
+      </Link>
       <Button
         variant="outline"
         className="lg:hidden"
@@ -101,12 +104,14 @@ const MainNavigationMenu = ({ services }: { services: Service[] }) => {
                 isSticky={true}
                 isMobile={true}
               />
-              <Button
-                variant="outline"
-                className="hover:bg-red-500 hover:border-red-500 hover:text-white font-bold transition-all duration-300 mx-7"
-              >
-                Demander un devis
-              </Button>
+              <Link href="/estimation">
+                <Button
+                  variant="outline"
+                  className="hover:bg-red-500 hover:border-red-500 hover:text-white font-bold transition-all duration-300 mx-7"
+                >
+                  Demander un devis
+                </Button>
+              </Link>
             </div>
           </JackInTheBox>
         </section>

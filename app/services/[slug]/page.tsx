@@ -1,7 +1,7 @@
 import Footer from "@/app/(home)/components/footer"
-import MainNavigationMenu from "@/app/(home)/components/main_navigation"
 import WhatsappBubble from "@/app/(home)/components/whatsapp_bubble"
-import { getServiceBySlug, getServices } from "@/app/(home)/utils/service"
+import { getServiceBySlug } from "@/app/(home)/utils/service"
+import MainHeader from "@/components/shared/header/main_header"
 import { urlFor } from "@/sanity/lib/image"
 import { PortableText } from "@portabletext/react"
 import Image from "next/image"
@@ -15,7 +15,6 @@ type CodeBlock = {
 }
 
 const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
-  const services = await getServices()
   const service = await getServiceBySlug(slug)
 
   const components = {
@@ -30,18 +29,11 @@ const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
 
   return (
     <main>
-      <div className="min-h-[30dvh] w-full relative">
-        <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[-2] bg-[url('/assets/images/hero_carousels/limete-tower.webp')] bg-cover bg-center bg-fixed"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[-1]"></div>
-        <div className="absolute top-0 left-0 w-full h-full flex flex-col">
-          <MainNavigationMenu services={services} />
-          <div className="flex-grow flex items-center justify-center">
-            <h1 className="text-center text-white text-4xl font-bold">
-              {service?.title}
-            </h1>
-          </div>
-        </div>
-      </div>
+      <MainHeader>
+        <h1 className="text-center text-white text-4xl font-bold">
+          {service?.title}
+        </h1>
+      </MainHeader>
       <div className="p-[5%]">
         <h2 className="text-3xl font-bold">{service?.title}</h2>
         <blockquote className="my-4 italic border-s-4 p-4 border-red-300 bg-gray-50 leading-relaxed">
@@ -59,7 +51,10 @@ const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
           )}
         </div>
         <div className="my-6 px-[5%] flex flex-col items-start justify-center">
-          <PortableText value={service?.content as TypedObject[]} components={components} />
+          <PortableText
+            value={service?.content as TypedObject[]}
+            components={components}
+          />
         </div>
       </div>
       <Footer />

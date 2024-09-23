@@ -7,6 +7,7 @@ import { PortableText } from "@portabletext/react"
 import Image from "next/image"
 import { TypedObject } from "sanity"
 import { getArticleBySlug } from "./actions/get_article"
+import MainHeader from "@/components/shared/header/main_header"
 
 type CodeBlock = {
   value: {
@@ -31,18 +32,11 @@ const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
 
   return (
     <main>
-      <div className="min-h-[30dvh] w-full relative">
-        <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[-2] bg-[url('/assets/images/hero_carousels/limete-tower.webp')] bg-cover bg-center bg-fixed"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[-1]"></div>
-        <div className="absolute top-0 left-0 w-full h-full flex flex-col">
-          <MainNavigationMenu services={services} />
-          <div className="flex-grow flex items-center justify-center">
-            <h1 className="text-center text-white text-4xl font-bold">
-              {article?.title}
-            </h1>
-          </div>
-        </div>
-      </div>
+      <MainHeader>
+        <h1 className="text-center text-white text-4xl font-bold">
+          {article?.title}
+        </h1>
+      </MainHeader>
       <div className="p-[5%]">
         <h2 className="text-3xl font-bold">{article?.title}</h2>
         <blockquote className="my-4 italic border-s-4 p-4 border-red-300 bg-gray-50 leading-relaxed">
@@ -69,7 +63,7 @@ const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
           {Boolean(article?.author.avatar) && (
             <Image
               src={urlFor(article!.author.avatar!).url()}
-              alt={article?.author.name ?? ''}
+              alt={article?.author.name ?? ""}
               width={60}
               height={60}
               className="h-[40px] w-[40px] object-cover rounded-full"
