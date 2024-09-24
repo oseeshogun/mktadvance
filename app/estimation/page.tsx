@@ -2,6 +2,7 @@ import MainHeader from "@/components/shared/header/main_header"
 import Footer from "../(home)/components/footer"
 import WhatsappBubble from "../(home)/components/whatsapp_bubble"
 import EstimationForm from "./estimation_form"
+import { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Mkt Advance - Devis et estimation",
