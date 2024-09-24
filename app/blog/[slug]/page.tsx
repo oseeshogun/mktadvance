@@ -1,7 +1,5 @@
 import Footer from "@/app/(home)/components/footer"
-import MainNavigationMenu from "@/app/(home)/components/main_navigation"
 import WhatsappBubble from "@/app/(home)/components/whatsapp_bubble"
-import { getServices } from "@/app/(home)/utils/service"
 import { urlFor } from "@/sanity/lib/image"
 import { PortableText } from "@portabletext/react"
 import Image from "next/image"
@@ -17,7 +15,6 @@ type CodeBlock = {
 }
 
 const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
-  const services = await getServices()
   const article = await getArticleBySlug(slug)
 
   const components = {

@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useFormState, useFormStatus } from "react-dom"
 import { sendContact } from "../actions/send_contact"
+import React, { useEffect } from "react"
 
 export type ContactUsFormInputs = {
   name: string
@@ -13,6 +14,8 @@ export type ContactUsFormInputs = {
 }
 
 const ContactUsForm = () => {
+  const formRef = React.createRef<HTMLFormElement>()
+  
   const [state, formAction] = useFormState(sendContact, {
     success: false,
     message: undefined,
@@ -20,8 +23,15 @@ const ContactUsForm = () => {
 
   const { pending } = useFormStatus()
 
+
+  useEffect(() => {
+    if (state.success) {
+      formRef.current?.reset()
+    }
+  }, [state.success, formRef])
+
   return (
-    <form action={formAction} className="php-email-form">
+    <form action={formAction} className="php-email-form" ref={formRef}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="form-group">
           <Input

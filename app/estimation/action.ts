@@ -3,7 +3,7 @@
 import { client } from "@/sanity/lib/client"
 
 export const saveEstimationForm = async (
-  prev: any,
+  prev: unknown,
   formData: FormData,
 ): Promise<{
   success: boolean

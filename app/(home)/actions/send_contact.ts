@@ -3,7 +3,7 @@
 import { client } from "@/sanity/lib/client";
 
 export const sendContact = async (
-  prev: any,
+  prev: unknown,
   formData: FormData,
 ): Promise<{ success: boolean; message?: string }> => {
   const data = {

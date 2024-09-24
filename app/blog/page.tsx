@@ -1,15 +1,12 @@
 import Link from "next/link"
 import Footer from "../(home)/components/footer"
-import MainNavigationMenu from "../(home)/components/main_navigation"
 import WhatsappBubble from "../(home)/components/whatsapp_bubble"
-import { getServices } from "../(home)/utils/service"
 import { getAllArticles } from "./[slug]/actions/get_article"
 import Image from "next/image"
 import { urlFor } from "@/sanity/lib/image"
 import MainHeader from "@/components/shared/header/main_header"
 
 const Page = async () => {
-  const services = await getServices()
   const articles = await getAllArticles()
 
   return (

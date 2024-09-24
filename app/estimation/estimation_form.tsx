@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import { saveEstimationForm } from "./action"
 import { useFormStatus, useFormState } from "react-dom"
 import { useEffect } from "react"
@@ -36,7 +36,7 @@ const EstimationForm = () => {
     if (state.success) {
       formRef.current?.reset()
     }
-  }, [state.success])
+  }, [state.success, formRef])
 
   return (
     <form
@@ -57,7 +57,7 @@ const EstimationForm = () => {
         )}
       </div>
       <div>
-        <Label htmlFor="company">Nom de l'entreprise</Label>
+        <Label htmlFor="company">Nom de l&apos;entreprise</Label>
         <Input
           placeholder="Nom entreprise"
           id="company"
@@ -69,7 +69,7 @@ const EstimationForm = () => {
         )}
       </div>
       <div>
-        <Label htmlFor="email">Email de l'entreprise</Label>
+        <Label htmlFor="email">Email de l&apos;entreprise</Label>
         <Input
           placeholder="contact@nom_entreprise.com"
           id="email"
@@ -82,7 +82,7 @@ const EstimationForm = () => {
         )}
       </div>
       <div>
-        <Label htmlFor="phone">Numéro de téléphone de l'entreprise</Label>
+        <Label htmlFor="phone">Numéro de téléphone de l&apos;entreprise</Label>
         <Input
           placeholder="+24382000000"
           id="phone"
