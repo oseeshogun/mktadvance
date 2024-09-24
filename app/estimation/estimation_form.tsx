@@ -29,7 +29,7 @@ const EstimationForm = () => {
   const { pending } = useFormStatus()
   const [state, formAction] = useFormState(saveEstimationForm, {
     success: false,
-    message: "",
+    message: undefined,
   })
 
   useEffect(() => {

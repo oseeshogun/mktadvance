@@ -29,6 +29,7 @@ import { getPartners } from "./utils/partners"
 import { getInfo } from "./utils/info"
 import { getCarousels, getProjects } from "./utils/projects"
 import Link from "next/link"
+import ContactUsForm from "./components/contact_us_form"
 
 export default async function Home() {
   const services = await getServices()
@@ -296,59 +297,7 @@ export default async function Home() {
             </a>
           </div>
           <div className="lg:w-8/12 mt-5 mt-lg-0 w-full">
-            <form
-              action="forms/contact.php"
-              method="post"
-              role="form"
-              className="php-email-form"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="name"
-                    className="form-control block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[1px] focus:ring-red-500"
-                    id="name"
-                    placeholder="Votre nom"
-                    required
-                  />
-                </div>
-                <div className="form-group mt-3 md:mt-0">
-                  <input
-                    type="email"
-                    className="form-control block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[1px] focus:ring-red-500"
-                    name="email"
-                    id="email"
-                    placeholder="Votre email"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="form-group mt-3">
-                <input
-                  type="text"
-                  className="form-control block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[1px] focus:ring-red-500"
-                  name="subject"
-                  id="subject"
-                  placeholder="Objet"
-                  required
-                />
-              </div>
-              <div className="form-group mt-3">
-                <textarea
-                  className="form-control block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[1px] focus:ring-red-500"
-                  name="message"
-                  rows={5}
-                  placeholder="Message"
-                  required
-                ></textarea>
-              </div>
-              <div className="text-center">
-                <Button type="submit" className="bg-red-500 mt-4">
-                  Envoyez le message
-                </Button>
-              </div>
-            </form>
+           <ContactUsForm />
           </div>
         </div>
       </section>

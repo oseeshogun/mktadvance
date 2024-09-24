@@ -7,10 +7,12 @@ import galleryType from "./gallery"
 import carouselType from "./carousel"
 import articleType from "./article"
 import estimationType from "./estimation"
+import messageType from "./message"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     estimationType,
+    messageType,
     servicesType,
     teamsType,
     partnersType,

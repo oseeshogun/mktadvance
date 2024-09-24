@@ -1,21 +1,17 @@
 "use server"
 
-import { client } from "@/sanity/lib/client"
+import { client } from "@/sanity/lib/client";
 
-export const saveEstimationForm = async (
+export const sendContact = async (
   prev: any,
   formData: FormData,
-): Promise<{
-  success: boolean
-  message?: string
-}> => {
+): Promise<{ success: boolean; message?: string }> => {
   const data = {
-    _type: "estimation",
+    _type: "message",
     name: formData.get("name"),
-    company: formData.get("company"),
-    email: formData.get("email"),
-    phone: formData.get("phone"),
-    description: formData.get("description"),
+    contact: formData.get("email"),
+    subject: formData.get("subject"),
+    message: formData.get("message"),
   }
 
   try {
