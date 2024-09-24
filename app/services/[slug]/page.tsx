@@ -4,6 +4,7 @@ import { getServiceBySlug } from "@/app/(home)/utils/service"
 import MainHeader from "@/components/shared/header/main_header"
 import { urlFor } from "@/sanity/lib/image"
 import { PortableText } from "@portabletext/react"
+import { Metadata } from "next"
 import Image from "next/image"
 import { TypedObject } from "sanity"
 
@@ -11,6 +12,21 @@ type CodeBlock = {
   value: {
     language: string
     code: string
+  }
+}
+
+export async function generateMetadata({
+  params: { slug },
+}: {
+  params: { slug: string }
+}): Promise<Metadata> {
+  const service = await getServiceBySlug(slug)
+
+  return {
+    title: service?.title ?? "MKT Advance",
+    openGraph: {
+      images: [service?.icon ?? ""],
+    },
   }
 }
 

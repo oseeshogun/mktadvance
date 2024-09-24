@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     "Affichage",
     "Publicité",
   ],
+  openGraph: {
+    images: '/assets/images/mkt-advance.png',
+  }
 };
 
 export default function RootLayout({

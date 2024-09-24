@@ -6,11 +6,27 @@ import Image from "next/image"
 import { TypedObject } from "sanity"
 import { getArticleBySlug } from "./actions/get_article"
 import MainHeader from "@/components/shared/header/main_header"
+import { Metadata } from "next"
 
 type CodeBlock = {
   value: {
     language: string
     code: string
+  }
+}
+
+export async function generateMetadata({
+  params: { slug },
+}: {
+  params: { slug: string }
+}): Promise<Metadata> {
+  const article = await getArticleBySlug(slug)
+
+  return {
+    title: article?.title ?? "MKT Advance",
+    openGraph: {
+      images: [article?.image ?? ""],
+    },
   }
 }
 
