@@ -20,9 +20,9 @@ const GalleriesComponent = ({ items }: { items: GalleryItem[] }) => {
 
   const currentImage = useMemo(() => items[index], [index, items])
   const nextIndex = useMemo(() => (index + 1) % items.length, [index, items])
-  const nextImage = useMemo(() => items[nextIndex] || currentImage, [index, items])
-  const prevIndex = (index + items.length - 1) % items.length
-  const prevImage = items[prevIndex] || currentImage
+  const nextImage = useMemo(() => items[nextIndex] || currentImage, [items, currentImage, nextIndex])
+  const prevIndex = useMemo(() => (index + items.length - 1) % items.length, [index, items])
+  const prevImage = useMemo(() => items[prevIndex] || currentImage, [items, currentImage, prevIndex])
 
   const handleClick = (index: number) => setIndex(index)
   const handleClose = () => setIndex(-1)
@@ -34,7 +34,7 @@ const GalleriesComponent = ({ items }: { items: GalleryItem[] }) => {
       <Gallery
         images={items}
         enableImageSelection={false}
-        onClick={(i, _) => handleClick(i)}
+        onClick={(i) => handleClick(i)}
       />
       {!!currentImage && (
         <Lightbox
