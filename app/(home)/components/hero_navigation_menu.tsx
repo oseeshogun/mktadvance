@@ -106,6 +106,19 @@ const HeroNaviationMenu = ({
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
+          <Link href="/gallerie" legacyBehavior passHref>
+            <NavigationMenuLink className="group transition-all duration-300 font-semibold flex flex-col">
+              Gallerie
+              <span
+                className={cn(
+                  "h-[2px] origin-left bg-white rounded-md scale-x-0 group-hover:scale-x-105 transition-transform duration-200",
+                  isSticky && "bg-black",
+                )}
+              ></span>
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
           <Link href="/blog" legacyBehavior passHref>
             <NavigationMenuLink className="group transition-all duration-300 font-semibold flex flex-col">
               Blog

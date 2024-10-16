@@ -8,6 +8,7 @@ import carouselType from "./carousel"
 import articleType from "./article"
 import estimationType from "./estimation"
 import messageType from "./message"
+import photoType from "./photo"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -18,6 +19,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     partnersType,
     infoType,
     galleryType,
+    photoType,
     carouselType,
     articleType,
   ],
