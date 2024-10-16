@@ -62,7 +62,7 @@ const MainNavigationMenu = ({ services }: { services: Service[] }) => {
       <Link href='/estimation'>
         <Button
           variant="outline"
-          className="hover:bg-red-500 hover:border-red-500 hover:text-white font-bold transition-all duration-300 max-md:hidden"
+          className="bg-red-500 border-red-500 text-white font-bold transition-all duration-300 max-md:hidden"
         >
           Demander un devis
         </Button>
@@ -107,7 +107,7 @@ const MainNavigationMenu = ({ services }: { services: Service[] }) => {
               <Link href="/estimation">
                 <Button
                   variant="outline"
-                  className="hover:bg-red-500 hover:border-red-500 hover:text-white font-bold transition-all duration-300 mx-7"
+                  className="bg-red-500 border-red-500 text-white font-bold transition-all duration-300 mx-7"
                 >
                   Demander un devis
                 </Button>

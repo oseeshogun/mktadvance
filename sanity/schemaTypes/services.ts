@@ -46,5 +46,11 @@ export default defineType({
       of: [{ type: "block" }],
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: "position",
+      title: "Position",
+      type: "number",
+      validation: (Rule) => Rule.required(),
+    })
   ],
 })

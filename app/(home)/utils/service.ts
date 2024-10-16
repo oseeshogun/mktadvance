@@ -11,7 +11,7 @@ export type Service = {
 }
 
 export const getServices = async (): Promise<Service[]> => {
-  const query = `*[_type == "service"] | order(title asc) {
+  const query = `*[_type == "service"] | order(position asc) {
       _id,
       title,
       slug,
