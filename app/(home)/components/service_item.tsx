@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { Fade } from "react-awesome-reveal"
 import { Service } from "../utils/service"
+import Particles from "@/components/ui/particles"
 
 const ServiceItem = ({
   service,
@@ -13,7 +14,14 @@ const ServiceItem = ({
   return (
     <Link href={`/services/${service.slug.current}`} key={index}>
       <Fade direction="up" triggerOnce>
-        <div className="border-[1px] border-gray-300 aspect-square hover:translate-y-[-10px] hover:border-white transition-all duration-300 hover:shadow-[0_0_25px_0_rgba(0,0,0,0.1)] origin-bottom flex flex-col items-center justify-center">
+        <div className="relative border-[1px] border-gray-300 aspect-square hover:translate-y-[-10px] hover:border-white transition-all duration-300 hover:shadow-[0_0_25px_0_rgba(0,0,0,0.1)] origin-bottom flex flex-col items-center justify-center">
+          <Particles
+            className="absolute inset-0"
+            quantity={100}
+            ease={80}
+            color="#ce1a18"
+            refresh
+          />
           <div
             className="text-white bg-red-500 aspect-square w-[60px] flex justify-center items-center rounded-sm"
             dangerouslySetInnerHTML={{ __html: service.icon }}

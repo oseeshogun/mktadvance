@@ -30,6 +30,8 @@ import { getInfo } from "./utils/info"
 import { getCarousels, getProjects } from "./utils/projects"
 import Link from "next/link"
 import ContactUsForm from "./components/contact_us_form"
+import NumberTicker from "@/components/ui/number-ticker"
+import SparklesText from "@/components/ui/sparkles-text"
 
 export default async function Home() {
   const services = await getServices()
@@ -86,7 +88,12 @@ export default async function Home() {
                 <Award className="text-green-500 w-[140px] mr-4" size={50} />
                 <div>
                   <h3 className="text-xl text-green-500 font-bold">
-                    La Passion
+                    <SparklesText
+                      className="text-3xl"
+                      text="La Passion"
+                      colors={{ first: "#22c55e", second: "#22c55e" }}
+                      sparklesCount={2}
+                    />
                   </h3>
                   <p>
                     Nous pensons qu&apos;il est important d&apos;être passionné
@@ -104,7 +111,12 @@ export default async function Home() {
                 />
                 <div>
                   <h3 className="text-xl text-black-500 font-bold">
-                    L&apos;exigence
+                    <SparklesText
+                      className="text-3xl"
+                      text="L'exigence"
+                      colors={{ first: "#000000", second: "#000000" }}
+                      sparklesCount={2}
+                    />
                   </h3>
                   <p>
                     Nous nous imposons ce que nous recommandons à nos clients et
@@ -116,7 +128,14 @@ export default async function Home() {
                 <HandCoins className="text-red-500 w-[90px] mr-4" size={50} />
                 <div>
                   <h3 className="text-xl text-red-500 font-bold">
-                    La Rentabilité
+                   
+                    <SparklesText
+                      className="text-3xl"
+                      text="La Rentabilité"
+                      colors={{ first: "#ef4444", second: "#ef4444" }}
+                      sparklesCount={2}
+                      
+                    />
                   </h3>
                   <p>
                     La rentabilité de nos actions est la garantie de la
@@ -196,7 +215,9 @@ export default async function Home() {
                 size={50}
                 className="text-red-500 h-[50px] w-[50px] float-left mr-3"
               />
-              <span className="text-4xl font-bold mr-1">+100</span>
+              <span className="text-4xl font-bold mr-1">
+                +<NumberTicker value={100} />
+              </span>
               <span className="font-bold">clients heureux</span> et satisfaits
               de nos services, témoignant de notre engagement envers
               l&apos;excellence et la satisfaction clientèle.
@@ -206,7 +227,9 @@ export default async function Home() {
                 size={50}
                 className="text-red-500 h-[50px] w-[50px] float-left mr-3"
               />
-              <span className="text-4xl font-bold mr-1">+300</span>
+              <span className="text-4xl font-bold mr-1">
+                +<NumberTicker value={300} />
+              </span>
               <span className="font-bold">projets réalisés</span> avec succès,
               démontrant notre expertise et notre capacité à concrétiser les
               visions de nos clients avec efficacité et professionnalisme.
@@ -216,7 +239,9 @@ export default async function Home() {
                 size={50}
                 className="text-red-500 h-[50px] w-[50px] float-left mr-3"
               />
-              <span className="text-4xl font-bold mr-1">+15</span>
+              <span className="text-4xl font-bold mr-1">
+                +<NumberTicker value={15} />
+              </span>
               <span className="font-bold">ans d&apos;expérience</span> à
               innover, créer et exceller dans l&apos;industrie, façonnant notre
               expertise et notre engagement à vous offrir le meilleur.
@@ -226,7 +251,9 @@ export default async function Home() {
                 size={50}
                 className="text-red-500 h-[50px] w-[50px] float-left mr-3"
               />
-              <span className="text-4xl font-bold mr-1">+20</span>
+              <span className="text-4xl font-bold mr-1">
+                +<NumberTicker value={20} />
+              </span>
               <span className="font-bold">prix remportés,</span> une
               reconnaissance de notre dévouement à l&apos;excellence et à
               l&apos;innovation dans notre domaine.
@@ -297,7 +324,7 @@ export default async function Home() {
             </a>
           </div>
           <div className="lg:w-8/12 mt-5 mt-lg-0 w-full">
-           <ContactUsForm />
+            <ContactUsForm />
           </div>
         </div>
       </section>
