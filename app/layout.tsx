@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "Publicité",
   ],
   openGraph: {
-    images: '/assets/images/mkt-advance.png',
+    images: '/assets/images/mkt-advance-details.jpeg',
   }
 };
 
