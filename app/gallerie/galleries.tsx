@@ -20,9 +20,18 @@ const GalleriesComponent = ({ items }: { items: GalleryItem[] }) => {
 
   const currentImage = useMemo(() => items[index], [index, items])
   const nextIndex = useMemo(() => (index + 1) % items.length, [index, items])
-  const nextImage = useMemo(() => items[nextIndex] || currentImage, [items, currentImage, nextIndex])
-  const prevIndex = useMemo(() => (index + items.length - 1) % items.length, [index, items])
-  const prevImage = useMemo(() => items[prevIndex] || currentImage, [items, currentImage, prevIndex])
+  const nextImage = useMemo(
+    () => items[nextIndex] || currentImage,
+    [items, currentImage, nextIndex],
+  )
+  const prevIndex = useMemo(
+    () => (index + items.length - 1) % items.length,
+    [index, items],
+  )
+  const prevImage = useMemo(
+    () => items[prevIndex] || currentImage,
+    [items, currentImage, prevIndex],
+  )
 
   const handleClick = (index: number) => setIndex(index)
   const handleClose = () => setIndex(-1)
@@ -31,11 +40,19 @@ const GalleriesComponent = ({ items }: { items: GalleryItem[] }) => {
 
   return (
     <div className="min-h-screen px-[5%] py-[10%]">
-      <Gallery
-        images={items}
-        enableImageSelection={false}
-        onClick={(i) => handleClick(i)}
-      />
+      <h1 className="text-3xl font-bold">Gallerie</h1>
+      <h3 className="text-md w-1/2">Bienvenue dans notre galerie, un espace où chaque image raconte une histoire.</h3>
+      <div className="flex flex-wrap">
+        {items.map((item, i) => (
+          <button
+            key={i}
+            className="w-1/4 p-2 group overflow-hidden"
+            onClick={() => handleClick(i)}
+          >
+            <img src={item.src} alt={item.alt} className="object-contain group-hover:scale-110 transition-all duration-300" />
+          </button>
+        ))}
+      </div>
       {!!currentImage && (
         <Lightbox
           mainSrc={currentImage.src}

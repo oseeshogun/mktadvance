@@ -38,7 +38,6 @@ export default async function Home() {
   const team = await getTeam()
   const partners = await getPartners()
   const info = await getInfo()
-  const projects = await getProjects()
   const carouselImages = await getCarousels()
 
   return (
@@ -128,13 +127,11 @@ export default async function Home() {
                 <HandCoins className="text-red-500 w-[90px] mr-4" size={50} />
                 <div>
                   <h3 className="text-xl text-red-500 font-bold">
-                   
                     <SparklesText
                       className="text-3xl"
                       text="La Rentabilité"
                       colors={{ first: "#ef4444", second: "#ef4444" }}
                       sparklesCount={2}
-                      
                     />
                   </h3>
                   <p>
@@ -179,21 +176,10 @@ export default async function Home() {
           </Button>
         </Link>
       </section>
-      <section className="my-6 px-[5%]" id="realisations">
-        <div>
-          <h5 className="flex items-center font-bold text-gray-400 opacity-60 after:ml-3 after:content-[''] after:w-[120px] after:h-[2px] after:bg-[#ffde9e] uppercase">
-            Réalisations
-          </h5>
-          <h1 className="mt-1 uppercase font-bold text-[32px]">
-            Consultez nos Réalisations
-          </h1>
-        </div>
-        <Porfolio portfolios={projects} />
-      </section>
       <section className="mt-8 mb-4 p-[5%] flex justify-between max-md:flex-col">
         <div className="w-[40%] max-md:w-full max-md:mb-4">
           <Image
-            src="/assets/images/image16.jpg"
+            src="/assets/images/image16_v2.jpg"
             alt="Directeur MKT Advance"
             width={239}
             height={239}

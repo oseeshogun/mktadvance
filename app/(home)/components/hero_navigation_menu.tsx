@@ -47,7 +47,7 @@ const HeroNaviationMenu = ({
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/#about_us" legacyBehavior passHref>
+          <Link href="/about" legacyBehavior passHref>
             <NavigationMenuLink className="group transition-all duration-300 font-semibold flex flex-col">
               À propos
               <span
@@ -60,12 +60,9 @@ const HeroNaviationMenu = ({
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <div className="relative cursor-pointer group">
+          <Link href="/services" legacyBehavior passHref>
             <NavigationMenuLink className="group transition-all duration-300 font-semibold flex flex-col">
-              <span className="flex items-center">
-                Nos services{" "}
-                <ChevronDown className="w-[14px] ml-1 group-hover:rotate-180 transition-transform duration-100" />
-              </span>
+              Nos services
               <span
                 className={cn(
                   "h-[2px] origin-left bg-white rounded-md scale-x-0 group-hover:scale-x-105 transition-transform duration-200",
@@ -73,27 +70,10 @@ const HeroNaviationMenu = ({
                 )}
               ></span>
             </NavigationMenuLink>
-            <div className="bg-white text-black rounded-lg absolute top-[120%] left-0 w-[320px] px-4 py-2 scale-0 hover:scale-100 group-hover:scale-100 delay-300 transition-transform duration-100 origin-top-left z-[8]">
-              <ul>
-                {services?.map((service) => (
-                  <li
-                    key={service.slug.current}
-                    className="my-2 hover:text-red-500"
-                  >
-                    <Link
-                      href={`/services/${service.slug.current}`}
-                      className="flex items-center justify-between font-semibold text-sm"
-                    >
-                      {service.title} <ChevronRight />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/#realisations" legacyBehavior passHref>
+          <Link href="/realisations" legacyBehavior passHref>
             <NavigationMenuLink className="group transition-all duration-300 font-semibold flex flex-col">
               Réalisations
               <span

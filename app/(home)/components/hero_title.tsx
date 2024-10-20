@@ -19,7 +19,10 @@ const HeroTitle = () => {
           <br />
         </span>
         <span className="flex">
-          <WordPullUp className="text-[72px] font-semibold leading-[64px] " words="Une touche d'éclat à vos marques" />
+          <WordPullUp
+            className="text-[72px] font-semibold leading-[64px] "
+            words="Une touche d'éclat à vos marques"
+          />
           <span className="text-red-500">.</span>
         </span>
       </div>
@@ -31,9 +34,8 @@ const HeroTitle = () => {
         className="flex flex-col justify-center"
       >
         <h2 className="mt-4 text-[24px] transition-all duration-300">
-          Notre équipe incarne la passion, l&apos;exigence et la rentabilité{" "}
-          <br />
-          pour une visibilité exceptionnels.
+          Nous créons des espaces de rencontre entre vos marques et les
+          consommateurs
         </h2>
       </Fade>
     </div>

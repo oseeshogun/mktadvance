@@ -10,13 +10,14 @@ const WhoWeAre = () => {
       <div className="w-[50%] max-md:w-full px-[5%]">
         <h2 className="text-3xl font-bold">Qui sommes-nous ?</h2>
         <div className="italic my-3">
-          Nous sommes une entreprise congolaise spécialisée dans la conception,
-          production et affichage de vos supports de visibilité. La stratégie,
-          le planning et l&apos;achat des espaces médias en RDC et au Congo
-          Brazzaville, le marketing expérientiel et l&apos;évènementiel, tels sont
-          les domaines d&apos;expertises que nous mettons à votre disposition.
+          Nous sommes un groupe de professionnels de la communication qui ont
+          chacun acquis une expertise tout en travaillant pour certaines des
+          plus grandes agences et clients en Afrique centrale et occidentale.
+          Nous nous sommes installés depuis plus de cinq ans afin d'apporter
+          notre richesse d'expérience et une meilleure gestion de la
+          communication au bénéfice de nos clients.
         </div>
-        <p className="flex items-center mt-3">
+        {/* <p className="flex items-center mt-3">
           <CheckCheck className="text-green-500" />
           <span className="ml-2">
             Concevoir, produire et afficher des supports de visibilité
@@ -36,7 +37,7 @@ const WhoWeAre = () => {
             Intégrer la co-création au cœur de nos processus pour dépasser les
             attentes.
           </span>
-        </p>
+        </p> */}
         <p className="mt-6">
           Nous croyons en la puissance de l&apos;innovation et de la simplicité.
           Chaque projet est une opportunité de transformer une idée en réalité,
@@ -46,7 +47,7 @@ const WhoWeAre = () => {
       <div className="w-[50%] max-md:w-full max-md:mb-4 px-[5%]">
         <Slide direction="right" triggerOnce>
           <Image
-            src="/assets/images/madame.jpg"
+            src="/assets/images/madame_v2.jpg"
             alt="Madame Mireille Kaimby Tshiyoyo"
             height={239}
             width={239}
