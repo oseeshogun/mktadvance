@@ -21,18 +21,7 @@ export default defineType({
       name: "category",
       title: "Catégories",
       type: "array",
-      of: [
-        {
-          type: "string",
-          options: {
-            list: [
-              { title: "Lettrage", value: "lettrage" },
-              { title: "Affiche", value: "affiche" },
-              { title: "Évènement", value: "event" },
-            ],
-          },
-        },
-      ],
+      of: [{ type: "reference", to: [{ type: "category" }] }],
       validation: (Rule) => Rule.required().min(1),
     }),
     defineField({

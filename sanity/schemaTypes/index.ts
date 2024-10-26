@@ -3,7 +3,8 @@ import servicesType from "./services"
 import teamsType from "./teams"
 import partnersType from "./partners"
 import infoType from "./info"
-import galleryType from "./gallery"
+import categoryType from "./categories"
+import realisationType from "./realisations"
 import carouselType from "./carousel"
 import articleType from "./article"
 import estimationType from "./estimation"
@@ -18,7 +19,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     teamsType,
     partnersType,
     infoType,
-    galleryType,
+    realisationType,
+    categoryType,
     photoType,
     carouselType,
     articleType,

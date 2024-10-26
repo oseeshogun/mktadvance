@@ -26,15 +26,17 @@ const rgbaDataURL = (r: number, g: number, b: number, a: number) => {
   }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`
 }
 
-const Porfolio = ({ portfolios }: { portfolios: CustomImage[] }) => {
-  const [currentCategory, setCurrentCategory] = useState(PortfolioCategory.all)
+const Porfolio = ({ portfolios, categories }: { portfolios: CustomImage[], categories: PortfolioCategory[] }) => {
+  const [currentCategory, setCurrentCategory] = useState<PortfolioCategory>(categories[0])
+
+  console.log(portfolios)
+
   const projects = useMemo(
     () =>
       portfolios
         .filter(
           (p) =>
-            p.category.includes(currentCategory) ||
-            currentCategory === PortfolioCategory.all,
+            p.category?.map((c) => c._ref).includes(currentCategory._id),
         )
         .map((t) => ({
           ...t,
@@ -65,9 +67,9 @@ const Porfolio = ({ portfolios }: { portfolios: CustomImage[] }) => {
   return (
     <section className="mt-6">
       <div className="flex justify-center gap-6 max-md:px-[5%] flex-wrap">
-        {Object.values(PortfolioCategory).map((category) => (
+        {categories.map((category) => (
           <Button
-            key={category}
+            key={category._id}
             className={cn(
               currentCategory === category && "bg-red-500 text-white",
               "transition-all ease-linear duration-100 uppercase",
@@ -75,15 +77,23 @@ const Porfolio = ({ portfolios }: { portfolios: CustomImage[] }) => {
             variant="outline"
             onClick={() => setCurrentCategory(category)}
           >
-            {category}
+            {category.name}
           </Button>
         ))}
       </div>
       <div className="my-5">
+        {projects.length === 0 && (
+          <div>
+            <Image src="/assets/images/Empty street-bro.svg" alt="Vide" width={300} height={300} className="mx-auto" />
+            <p className="text-center text-lg mt-3">
+              Désolé, aucune photo n&apos;a été trouvé pour la catégorie sélectionnée.
+            </p>
+          </div>
+        )}
         <div className="grid grid-cols-3 gap-4 max-md:grid-cols-2 max-sm:grid-cols-1">
           {projects.map((project, index) => (
             <div
-              key={index + currentCategory}
+              key={index + currentCategory._id}
               className="w-full h-full relative cursor-pointer group"
             >
               <Zoom>

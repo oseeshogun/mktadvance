@@ -1,10 +1,11 @@
 import MainHeader from "@/components/shared/header/main_header"
 import Footer from "../(home)/components/footer"
 import Porfolio from "../(home)/components/portfolio"
-import { getProjects } from "../(home)/utils/projects"
+import { getCategories, getProjects } from "../(home)/utils/projects"
 
 const Page = async () => {
   const projects = await getProjects()
+  const categories = await getCategories()
 
   return (
     <main>
@@ -22,7 +23,7 @@ const Page = async () => {
             Consultez nos Réalisations
           </h1>
         </div>
-        <Porfolio portfolios={projects} />
+        <Porfolio categories={categories} portfolios={projects} />
       </section>
       <Footer />
     </main>
