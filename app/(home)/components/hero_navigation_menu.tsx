@@ -9,6 +9,7 @@ import { ChevronDown, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import React from "react"
 import { Service } from "../utils/service"
+import { usePathname } from "next/navigation"
 
 const HeroNaviationMenu = ({
   isSticky,
@@ -19,6 +20,8 @@ const HeroNaviationMenu = ({
   isMobile?: boolean
   services: Service[]
 }) => {
+  const path = usePathname()
+
   return (
     <NavigationMenu
       className={cn(
@@ -41,6 +44,7 @@ const HeroNaviationMenu = ({
                 className={cn(
                   "h-[2px] origin-left bg-white rounded-md scale-x-0 group-hover:scale-x-105 transition-transform duration-200",
                   isSticky && "bg-black",
+                  path === "/" && "scale-x-105",
                 )}
               ></span>
             </NavigationMenuLink>
@@ -54,6 +58,7 @@ const HeroNaviationMenu = ({
                 className={cn(
                   "h-[2px] origin-left bg-white rounded-md scale-x-0 group-hover:scale-x-105 transition-transform duration-200",
                   isSticky && "bg-black",
+                  path === "/about" && "scale-x-105",
                 )}
               ></span>
             </NavigationMenuLink>
@@ -67,6 +72,7 @@ const HeroNaviationMenu = ({
                 className={cn(
                   "h-[2px] origin-left bg-white rounded-md scale-x-0 group-hover:scale-x-105 transition-transform duration-200",
                   isSticky && "bg-black",
+                  path === "/services" && "scale-x-105",
                 )}
               ></span>
             </NavigationMenuLink>
@@ -80,6 +86,7 @@ const HeroNaviationMenu = ({
                 className={cn(
                   "h-[2px] origin-left bg-white rounded-md scale-x-0 group-hover:scale-x-105 transition-transform duration-200",
                   isSticky && "bg-black",
+                  path === "/realisations" && "scale-x-105",
                 )}
               ></span>
             </NavigationMenuLink>
@@ -93,6 +100,7 @@ const HeroNaviationMenu = ({
                 className={cn(
                   "h-[2px] origin-left bg-white rounded-md scale-x-0 group-hover:scale-x-105 transition-transform duration-200",
                   isSticky && "bg-black",
+                  path === "/gallerie" && "scale-x-105",
                 )}
               ></span>
             </NavigationMenuLink>
@@ -106,6 +114,7 @@ const HeroNaviationMenu = ({
                 className={cn(
                   "h-[2px] origin-left bg-white rounded-md scale-x-0 group-hover:scale-x-105 transition-transform duration-200",
                   isSticky && "bg-black",
+                  path === "/blog" && "scale-x-105",
                 )}
               ></span>
             </NavigationMenuLink>
@@ -119,6 +128,7 @@ const HeroNaviationMenu = ({
                 className={cn(
                   "h-[2px] origin-left bg-white rounded-md scale-x-0 group-hover:scale-x-105 transition-transform duration-200",
                   isSticky && "bg-black",
+                  path === "/#contact" && "scale-x-105",
                 )}
               ></span>
             </NavigationMenuLink>

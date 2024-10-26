@@ -12,11 +12,11 @@ import { Partner } from "../utils/partners"
 
 const TheyTrustUs = ({ partners }: { partners: Partner[] }) => {
   return (
-    <div className="my-4 px-4">
-      <h4 className="text-center text-3xl font-bold">
+    <div className="my-8 px-4">
+      <h4 className="text-center text-4xl font-bold">
         Ils nous font confiance
       </h4>
-      <div className="mt-6 flex justify-center">
+      <div className="my-6 flex justify-center">
         <Carousel
           opts={{
             loop: true,
@@ -41,7 +41,7 @@ const TheyTrustUs = ({ partners }: { partners: Partner[] }) => {
                     width={200}
                     height={120}
                     className={cn(
-                      "object-contain opacity-[0.3] filter grayscale hover:opacity-100 hover:filter-none cursor-pointer transition-all duration-300 w-[116px] h-auto align-middle",
+                      "object-contain max-h-[70px] opacity-[0.3] filter grayscale hover:opacity-100 hover:filter-none cursor-pointer transition-all duration-300 w-[116px] h-auto align-middle",
                     )}
                   />
                 </Zoom>

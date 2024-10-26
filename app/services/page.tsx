@@ -8,10 +8,16 @@ const Page = async () => {
 
   return (
     <main>
-      <MainHeader>
-        <h1 className="text-center text-white text-4xl font-bold">
-          Nos services
-        </h1>
+      <MainHeader className="min-h-[40dvh]">
+        <div className="flex flex-col">
+          <h1 className="text-center text-white text-4xl font-bold">
+            Notre Positionnement
+          </h1>
+          <p className="text-center text-white my-6 text-lg">
+            Leader dans la production des enseignes et les supports de
+            visibilité.
+          </p>
+        </div>
       </MainHeader>
       <section className="my-6 px-[5%]">
         <div>

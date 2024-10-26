@@ -10,20 +10,19 @@ const HeroTitle = () => {
       <div className="text-[72px] font-semibold leading-[64px] overflow-hidden lg:max-w-[90%] lg:self-center transition-all duration-300">
         <span className="text-red-500 font-bold flex justify-center">
           <FlipText
-            className="text-[72px] font-bold tracking-[-0.02em] inline w-fit"
+            className="text-[72px] font-bold tracking-[-0.2em] uppercase inline w-fit"
             word="MKT Advance"
           />
           <span className="text-white">
-            <FlipText className="inline w-fit" word="," />
+            <FlipText className="inline w-fit" word=" ," />
           </span>
           <br />
         </span>
         <span className="flex">
           <WordPullUp
-            className="text-[72px] font-semibold leading-[64px] "
-            words="Une touche d'éclat à vos marques"
+            className="text-[52px] font-semibold leading-[64px] "
+            words="Nous créons des espaces de rencontre entre vos marques et les consommateurs"
           />
-          <span className="text-red-500">.</span>
         </span>
       </div>
       <Fade
@@ -34,8 +33,7 @@ const HeroTitle = () => {
         className="flex flex-col justify-center"
       >
         <h2 className="mt-4 text-[24px] transition-all duration-300">
-          Nous créons des espaces de rencontre entre vos marques et les
-          consommateurs
+          Respect et Intégrité au centre de nos procédures
         </h2>
       </Fade>
     </div>

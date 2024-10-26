@@ -17,8 +17,6 @@ import WhoWeAre from "./components/who_we_are"
 import TheyTrustUs from "./components/they_trust_us"
 import HeroTitle from "./components/hero_title"
 import ValuesImage from "./components/values_image"
-import Porfolio from "./components/portfolio"
-import ServiceItem from "./components/service_item"
 import MktTeam from "./components/team"
 import Footer from "./components/footer"
 import WhatsappBubble from "./components/whatsapp_bubble"
@@ -27,7 +25,7 @@ import { getServices } from "./utils/service"
 import { getTeam } from "./utils/team"
 import { getPartners } from "./utils/partners"
 import { getInfo } from "./utils/info"
-import { getCarousels, getProjects } from "./utils/projects"
+import { getCarousels } from "./utils/projects"
 import Link from "next/link"
 import ContactUsForm from "./components/contact_us_form"
 import NumberTicker from "@/components/ui/number-ticker"
@@ -81,7 +79,7 @@ export default async function Home() {
         <div className="my-6 flex px-[5%] max-md:flex-col">
           <ValuesImage />
           <div className="w-[50%] px-[5%] max-md:w-full max-md:mt-6">
-            <h1 className="text-2xl font-bold text-left mb-6">Nos valeurs</h1>
+            <h1 className="text-4xl font-bold text-left mb-6">Nos valeurs</h1>
             <div className="[&>*]:mb-6 flex flex-col justify-center">
               <div className="flex">
                 <Award className="text-green-500 w-[140px] mr-4" size={50} />
@@ -94,7 +92,7 @@ export default async function Home() {
                       sparklesCount={2}
                     />
                   </h3>
-                  <p>
+                  <p className="text-lg">
                     Nous pensons qu&apos;il est important d&apos;être passionné
                     par ce que l&apos;on fait afin de prendre du plaisir dans
                     les projets que nous menons et à le partager avec nos
@@ -117,7 +115,7 @@ export default async function Home() {
                       sparklesCount={2}
                     />
                   </h3>
-                  <p>
+                  <p className="text-lg">
                     Nous nous imposons ce que nous recommandons à nos clients et
                     ce que nous exigeons de nos prestataires.
                   </p>
@@ -134,7 +132,7 @@ export default async function Home() {
                       sparklesCount={2}
                     />
                   </h3>
-                  <p>
+                  <p className="text-lg">
                     La rentabilité de nos actions est la garantie de la
                     satisfaction de nos clients. Notre propre rentabilité est la
                     garantie de notre indépendance et de notre développement.
@@ -145,7 +143,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <section className="my-6 px-[5%]">
+      {/* <section className="my-6 px-[5%]">
         <div>
           <h5 className="flex items-center font-bold text-gray-400 opacity-60 after:ml-3 after:content-[''] after:w-[120px] after:h-[2px] after:bg-[#ffde9e]">
             NOS SERVICES
@@ -159,7 +157,7 @@ export default async function Home() {
             <ServiceItem service={service} index={index} key={index} />
           ))}
         </div>
-      </section>
+      </section> */}
       <section className="bg-scroll min-h-[300px] w-full flex flex-col justify-center items-center text-white relative px-[5%] text-center">
         <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[-2] bg-[url('/assets/images/cta-bg.jpg')] bg-fixed"></div>
         <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[-1]"></div>
@@ -179,11 +177,12 @@ export default async function Home() {
       <section className="mt-8 mb-4 p-[5%] flex justify-between max-md:flex-col">
         <div className="w-[40%] max-md:w-full max-md:mb-4">
           <Image
-            src="/assets/images/image16_v2.jpg"
+            src="/assets/images/image16_v3.jpg"
             alt="Directeur MKT Advance"
             width={239}
             height={239}
             className="w-full h-full object-cover"
+            quality={100}
           />
         </div>
         <div className="w-[55%] max-md:w-full">
