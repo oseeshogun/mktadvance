@@ -11,5 +11,11 @@ export default defineType({
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: "order",
+      title: "Ordre",
+      type: "number",
+      validation: (Rule) => Rule.required(),
+    })
   ],
 })

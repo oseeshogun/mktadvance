@@ -18,7 +18,7 @@ export type CustomImage = {
 }
 
 export const getCategories = async (): Promise<PortfolioCategory[]> => {
-  const query = `*[_type == "category"] | order(publishedAt desc) {
+  const query = `*[_type == "category"] | order(ordre asc) {
         _id,
         name,
       }`
