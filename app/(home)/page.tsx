@@ -183,6 +183,7 @@ export default async function Home() {
             height={239}
             className="w-full h-full object-cover"
             quality={100}
+            unoptimized
           />
         </div>
         <div className="w-[55%] max-md:w-full">

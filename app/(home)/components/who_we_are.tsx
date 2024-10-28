@@ -31,6 +31,7 @@ const WhoWeAre = () => {
             width={239}
             className="w-full object-cover slide-reveal-right transition-all duration-300"
             quality={100}
+            unoptimized
           />
         </Slide>
       </div>
