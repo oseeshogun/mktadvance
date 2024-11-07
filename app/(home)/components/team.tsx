@@ -34,6 +34,7 @@ const MktTeam = ({ team }: { team: TeamMember[] }) => {
               width={239}
               height={239}
               className="rounded-full aspect-square h-[100px] w-[100px] max-sm:h-[50px] max-sm:w-[50px] border-8 border-[rgba(255,255,255,.15)] object-cover"
+              unoptimized
             />
             <h4 className="font-bold text-xl mt-4 max-sm:px-4">
               {member.name}

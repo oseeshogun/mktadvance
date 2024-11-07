@@ -84,7 +84,7 @@ const Porfolio = ({ portfolios, categories }: { portfolios: CustomImage[], categ
       <div className="my-5">
         {projects.length === 0 && (
           <div>
-            <Image src="/assets/images/Empty street-bro.svg" alt="Vide" width={300} height={300} className="mx-auto" />
+            <Image src="/assets/images/Empty street-bro.svg" alt="Vide" width={300} height={300} className="mx-auto" unoptimized />
             <p className="text-center text-lg mt-3">
               Désolé, aucune photo n&apos;a été trouvé pour la catégorie sélectionnée.
             </p>
