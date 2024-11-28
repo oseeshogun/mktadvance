@@ -7,12 +7,12 @@ const WhoWeAre = () => {
   return (
     <div className="py-20 flex max-md:flex-col-reverse" id="about_us">
       <div className="w-[50%] max-md:w-full px-[5%]">
-        <h2 className="text-4xl font-bold">Qui sommes-nous ?</h2>
+        <h2 className="text-4xl max-md:text-3xl font-bold">Qui sommes-nous ?</h2>
         <div className="italic my-3 text-lg">
           Nous sommes un groupe de professionnels de la communication qui ont
           chacun acquis une expertise tout en travaillant pour certaines des
           plus grandes agences et clients en Afrique centrale et occidentale.
-          Notre expérience depuis plus de 15 ans, nous permet d'apporter notre
+          Notre expérience depuis plus de 15 ans, nous permet d&apos;apporter notre
           riche expertise et une meilleure gestion de la communication au
           bénéfice de nos clients.
         </div>

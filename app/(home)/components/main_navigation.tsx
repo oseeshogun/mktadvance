@@ -49,17 +49,27 @@ const MainNavigationMenu = ({ services }: { services: Service[] }) => {
           "fixed w-full top-0 left-0 m-0 bg-white py-3 text-black z-[3] shadow-lg origin-top transition-all duration-300",
       )}
     >
-      <div className="bg-white">
+      <div className="flex">
+        <div className="bg-white">
+          <Image
+            src="/assets/images/mkt-advance.png"
+            alt="MKT Advance Logo"
+            height={262}
+            width={529}
+            className="w-[90px] object-contain"
+          />
+        </div>
         <Image
-          src="/assets/images/mkt-advance.png"
-          alt="MKT Advance Logo"
-          height={262}
-          width={529}
-          className="w-[90px] object-contain"
+          src="/assets/images/Animated-Flag-Congo.gif"
+          alt="Animated Congo DRC Flag"
+          height={300}
+          width={300}
+          className="w-[50px] object-contain ml-2"
+          unoptimized
         />
       </div>
       <HeroNaviationMenu services={services} isSticky={isSticky} />
-      <Link href='/estimation'>
+      <Link href="/estimation">
         <Button
           variant="outline"
           className="bg-red-500 border-red-500 text-white font-bold transition-all duration-300 max-md:hidden"

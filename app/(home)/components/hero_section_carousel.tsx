@@ -28,8 +28,8 @@ const HeroSectionCarousel = ({
         className="overflow-hidden"
       >
         <CarouselContent>
-          {images.map((carousel) => (
-            <CarouselItem key={carousel.image}>
+          {images.map((carousel, index) => (
+            <CarouselItem key={index}>
               <Image
                 src={carousel.image}
                 alt={carousel.caption}

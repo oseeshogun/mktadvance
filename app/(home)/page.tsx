@@ -43,14 +43,6 @@ export default async function Home() {
       <div className="h-screen w-screen relative">
         <HeroSectionCarousel images={carouselImages} />
         <div className="bg-black/60 absolute top-0 left-0 h-screen w-screen"></div>
-        <Image
-          src="/assets/images/Animated-Flag-Congo.gif"
-          alt="Animated Congo DRC Flag"
-          height={300}
-          width={300}
-          className="absolute bottom-2 right-2 w-[50px] object-contain"
-          unoptimized
-        />
         <div className="absolute top-0 left-0 h-screen w-screen flex flex-col justify-between">
           <MainNavigationMenu services={services} />
           <div className="text-white text-center mt-8">
@@ -142,6 +134,22 @@ export default async function Home() {
             </div>
           </div>
         </div>
+      </section>
+      <section className="px-[20%] max-md:px-[5%] py-[3rem] max-md:py-[1rem] [&>*]:my-3">
+        <Image
+          src="/assets/images/words.png"
+          alt="WORDS"
+          height={330}
+          width={1801}
+          unoptimized
+        />
+        <Image
+          src="/assets/images/professionalisme.png"
+          alt="WORDS"
+          height={330}
+          width={1801}
+          unoptimized
+        />
       </section>
       {/* <section className="my-6 px-[5%]">
         <div>
@@ -247,11 +255,25 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <section className="min-h-[380px] w-full relative">
+      <section className="min-h-[500px] max-md:min-h-[600px] w-full relative">
         <div className="bg-[url('/assets/images/testimonials-bg.jpg')] bg-cover bg-fixed bg-center z-[-2] w-full h-full absolute top-0 left-0"></div>
         <div className="z-[-1] bg-black/70 w-full h-full absolute top-0 left-0"></div>
         <div className="w-full h-full absolute top-0 left-0 py-[2%] text-white flex flex-col items-center">
           <h2 className="text-3xl font-bold text-center">Notre équipe</h2>
+          <p className="my-3 px-[20%] max-lg:px-[5%] text-center">
+            <strong>L&apos;EQUIPE</strong> qui vous accompagne est une
+            concentration d&apos;experts et de consultants ayant travaillée au
+            sein des plus grandes agences et régies publicitaires en République
+            Démocratique du Congo, Congo Brazzaville, en Afrique et au-delà.
+            Avec une connaissance profonde du marché local en RDC, et nous
+            travaillons en collaboration avec d&apos;autres agences en Afrique
+            et au-delà.
+          </p>
+          <p className="my-3 px-[20%] max-lg:px-[5%] text-center">
+            Forte d&apos;une connaissance approfondie du marché local en RDC,
+            Nous collaborons également avec d&apos;autres agences à travers le
+            continent africain et dans le monde.
+          </p>
           <MktTeam team={team} />
         </div>
       </section>
